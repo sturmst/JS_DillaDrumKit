@@ -5,46 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Roboto&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="App.js" defer></script>
     <title>JS30 - 01 - Drumkit</title>
 </head>
 <!-- http://keycode.info/ -->
 <body>
-    <!-- A - Kick -->
-    <audio data-key="65" src="sounds/kick.wav"></audio>
-    <!-- S - Snare -->
-    <audio data-key="83" src="sounds/snare.wav"></audio>
-    <!-- W - closed high hat -->
-    <audio data-key="87" src="sounds/closedhighhat.wav"></audio>
-    <!-- E - Open High Hat -->
-    <audio data-key="69" src="sounds/openhighhat.wav"></audio>
-    <!-- D - Loop normal -->
-    <audio data-key="68" src="sounds/loop.wav"></audio>
-    <!-- F - Loop up --> 
-    <audio data-key="70" src="sounds/loopup.wav"></audio>
-    <!-- G - Loop down --> 
-    <audio data-key="71" src="sounds/loopdown.wav"></audio>
-    <div class="drum-machine">
-        <div class="drum-machine--screen">
-            <div class="drum-machine--wavform">
-                <span class="drum-machine--wav"></span>
-                <span class="drum-machine--wav"></span>
-                <span class="drum-machine--wav"></span>
-                <span class="drum-machine--wav"></span>
-                <span class="drum-machine--wav"></span>
-            </div>
+        <div class="p-5 m-5" id="heading">
+            <h1 class="display-3">Dilla Drums</h1>
+            <p class="lead">A - Kick</p>
+            <p class="lead">S - Snare</p>
+            <p class="lead">D - Loop</p>
         </div>
-        <div class="drum-machine--controls">
-            <div class="drum-machine--control"></div>
+        <div class="container">
+            <div class="drum-machine">
+                <div class="drum-machine--screen">
+                    <div class="drum-machine--wavform">
+                        <span class="drum-machine--wav"></span>
+                        <span class="drum-machine--wav"></span>
+                        <span class="drum-machine--wav"></span>
+                        <span class="drum-machine--wav"></span>
+                        <span class="drum-machine--wav"></span>
+                    </div>
+                </div>
+                <div class="drum-machine--controls">
+                    <div class="drum-machine--control"></div>
+                </div>
+                <!-- Todo: onclick event -->
+                <div class="drum-machine--buttons">
+                    <div data-key="65"  class="drum-machine--button key">
+                    </div>
+                    <div  data-key="83" class="drum-machine--button key">
+                    </div>
+                    <div data-key="68" class="drum-machine--button key loop">
+                    </div>
+                </div>
+            </div>
+            <!-- A - Kick -->
+            <audio data-key="65" src="sounds/kick.wav"></audio>
+            <!-- S - Snare -->
+            <audio data-key="83" src="sounds/snare.wav"></audio>
+            <!-- W - closed high hat -->
+            <audio data-key="87" src="sounds/closedhighhat.wav"></audio>
+            <!-- E - Open High Hat -->
+            <audio data-key="69" src="sounds/openhighhat.wav"></audio>
+            <!-- D - Loop normal -->
+            <audio data-key="68" src="sounds/loop.wav"></audio>
+            <!-- F - Loop up --> 
+            <audio data-key="70" src="sounds/loopup.wav"></audio>
+            <!-- G - Loop down --> 
+            <audio data-key="71" src="sounds/loopdown.wav"></audio>
         </div>
-        <div class="drum-machine--buttons">
-            <div data-key="65" class="drum-machine--button key">
-            </div>
-            <div  data-key="83" class="drum-machine--button key">
-            </div>
-            <div data-key="68" class="drum-machine--button key loop">
-            </div>
-        </div>
-    </div>
 </body>
 </html>

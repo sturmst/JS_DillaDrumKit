@@ -1,0 +1,279 @@
+    /* html {
+        font-size: 10px;
+        background: url('./background.jpg') bottom center;
+        background-size: cover;
+    }
+    
+    body,html {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    } */
+    
+
+    /* MPC CSS ----------------------------------------- */
+    body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, #4E7FFF, lime);
+        margin: 0;
+        height: 100vh;
+        }
+        
+        body::before {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: white;
+        animation: fadeOut 1 both 0.4s 2s;
+        content: "";
+        }
+        
+        * {
+        box-sizing: border-box;
+        }
+        
+        .drum-machine {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        width: 450px;
+        height: 450px;
+        background-color:#F9EFE5;
+        transition: transform 0.4s;
+        transform: translateY(20px) rotateX(60deg) rotateY(0deg) rotateZ(45deg);
+        box-shadow: 50px 50px 10px rgba(0, 0, 0, 0.2);
+        animation: raise 1 both 0.4s 3s cubic-bezier(.75,-0.5,0,1.75),
+                    fadeIn 1 both 0.4s 1s;
+        }
+        
+        .drum-machine::before {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 60px;
+        background-color: #EDD9C2;
+        transform: skew(45deg);
+        transform-origin: top;
+        content: "STEMPC";
+        }
+        
+        .drum-machine::after {
+        position: absolute;
+        left: 100%;
+        width: 60px;
+        height: 100%;
+        background-color: #9e8f7e;
+        transform: skewY(45deg);
+        transform-origin: left;
+        content: "";
+        }
+        
+        .drum-machine--screen {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        margin: 10px 10px 0;
+        background-color: black;
+        }
+        
+        .drum-machine--buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 10px 0;
+        }
+        
+        .drum-machine--button {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+        background-color: #A59E98;
+            box-shadow: 5px 5px 10px 2px transparent;
+        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+        }
+        
+        /*  hover */
+        .drum-machine--button:active {
+        background-color: #0ff;
+        transform: translate(2px, 2px);
+            box-shadow: 5px 5px 10px 2px rgba(255, 255, 255, 0.8);
+        }
+        
+        .drum-machine--button::before {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 5px;
+        background-color: #293852;
+        transform: skewX(45deg) scaleY(1);
+        transform-origin: top;
+        transition: transform 0.2s;
+        content: "";
+        }
+        
+        .drum-machine--button::after {
+        position: absolute;
+        left: 100%;
+        width: 5px;
+        height: 100%;
+        background-color: #1c2739;
+        transform: skewY(45deg) scaleX(1);
+        transform-origin: left;
+        transition: transform 0.2s;
+        content: "";
+        }
+        
+        .drum-machine--button:hover::before {
+        transform: skewX(45deg) scaleY(0.4);
+        }
+        
+        .drum-machine--button:hover::after {
+        transform: skewY(45deg) scaleX(0.4);
+        }
+        
+        .drum-machine--wavform {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 45px;
+        transform: translate(-50%, -50%);
+        animation: fadeIn 1 both 0.4s 4.4s;
+        }
+        
+        .drum-machine--wav {
+        display: block;
+        bottom: 0px;
+        width: 9px;
+        height: 5px;
+        background: #9b59b6;
+        position: absolute;
+        animation: audio-wave 1.5s infinite ease-in-out;
+        }
+        
+        .drum-machine--wav:nth-child(2) {
+        left: 11px;
+        animation-delay: 0.2s;
+        }
+        
+        .drum-machine--wav:nth-child(3) {
+        left: 22px;
+        animation-delay: 0.4s;
+        }
+        
+        .drum-machine--wav:nth-child(4) {
+        left: 33px;
+        animation-delay: 0.6s;
+        }
+        
+        .drum-machine--wav:nth-child(5) {
+        left: 44px;
+        animation-delay: 0.8s;
+        }
+        
+        @keyframes audio-wave {
+        0% {
+            height: 5px;
+            transform: translateY(0px);
+            background: #9b59b6;
+        }
+        25% {
+            height: 20px;
+            transform: translateY(10px);
+            background: #3498db;
+        }
+        50% {
+            height: 5px;
+            transform: translateY(0px);
+            background: #9b59b6;
+        }
+        100% {
+            height: 5px;
+            transform: translateY(0px);
+            background: #9b59b6;
+        }
+        }
+        
+        @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        } 
+        
+        100% {
+            opacity: 0;
+        }
+        }
+        
+        @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        } 
+        
+        100% {
+            opacity: 1;
+        }
+        }
+        
+        @keyframes raise {
+        0% {
+            transform: translateY(20px) rotateX(60deg) rotateY(0deg) rotateZ(45deg);
+            box-shadow: 50px 50px 10px rgba(0, 0, 0, 0);
+        }
+        
+        100% {
+            transform: translateY(0) rotateX(60deg) rotateY(0deg) rotateZ(45deg);
+            box-shadow: 50px 50px 10px rgba(0, 0, 0, 0.2);
+        }
+        }
+
+
+        .keys {
+            display: flex;
+            flex: 1;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .key {
+            /* border: .4rem solid black;
+            border-radius: .5rem;
+            margin: 1rem;
+            font-size: 1.5rem;
+            padding: 1rem .5rem; */
+            transition: all .07s ease;
+            /* ssbackground-color: #0ff; */
+            transform: translate(2px, 2px);
+            /* width: 10rem;
+            text-align: center;
+            color: white;
+            background: rgba(0,0,0,0.4);
+            text-shadow: 0 0 .5rem black; */
+        }
+        
+        
+        .playing {
+            transform: scale(1.1);
+            background-color: #0ff;
+        }
+
+        .playing .loop {
+            background-color: red;
+        }
+        
+        kbd {
+            display: block;
+            font-size: 4rem;
+        }
+        
+        .sound {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            color: #ffc600;
+        }
+        
